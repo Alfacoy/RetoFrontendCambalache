@@ -5,7 +5,7 @@ const repository = document.querySelector('#repository');
 const history = document.querySelector('#history');
 
 window.addEventListener('load', () => {
-    fetch('http://localhost:8080/api/lenguages')
+    fetch('https://retocambasoft.herokuapp.com/api/lenguages')
         .then(res => res.json())
         .then(data => {
             const { lenguages } = data.payload;
@@ -44,7 +44,7 @@ formLoginUser.addEventListener('submit', (event) => {
         email: formData.get('email'),
         pass: formData.get('pass')
     }
-    fetch('http://localhost:8080/api/auth/login', {
+    fetch('https://retocambasoft.herokuapp.com/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json', }
@@ -87,7 +87,7 @@ formRegisterUser.addEventListener('submit', (event) => {
         pass: formData.get('passRegister')
     }
 
-    fetch('http://localhost:8080/api/auth/register', {
+    fetch('https://retocambasoft.herokuapp.com/api/auth/register', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json', }
@@ -125,7 +125,7 @@ formLogout.addEventListener('submit', (event) => {
 const btnRepos = document.querySelector('#ver_repos');
 btnRepos.addEventListener('click', () => {
     const id = localStorage.getItem('uid');
-    fetch(`http://localhost:8080/api/repo/${id}`)
+    fetch(`https://retocambasoft.herokuapp.com/api/repo/${id}`)
         .then(res => res.json())
         .then(data => {
             if (data.status === 'Error') return response.textContent = JSON.stringify(data, null, 2);
@@ -145,7 +145,7 @@ formRepository.addEventListener('submit', (event) => {
         user_id: localStorage.getItem('uid')
     }   
 
-    fetch(`http://localhost:8080/api/repo/add`,{
+    fetch(`https://retocambasoft.herokuapp.com/api/repo/add`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json', }
@@ -169,7 +169,7 @@ formRepoDelete.addEventListener('submit', (event) => {
     const data = {
         id: formData.get('idRepo')
     }
-    fetch(`http://localhost:8080/api/repo/${data.id}`, {
+    fetch(`https://retocambasoft.herokuapp.com/api/repo/${data.id}`, {
         method: 'DELETE',
     })
         .then(res => res.json())
@@ -185,7 +185,7 @@ formRepoDelete.addEventListener('submit', (event) => {
 /*LENGUAGES*/
 const btnLenguages = document.querySelector('#ver_lenguages');
 btnLenguages.addEventListener('click', () => {
-    fetch(`http://localhost:8080/api/lenguages`)
+    fetch(`https://retocambasoft.herokuapp.com/api/lenguages`)
         .then(res => res.json())
         .then(data => {
             if (data.status === 'Error') return response.textContent = JSON.stringify(data, null, 2);
@@ -197,7 +197,7 @@ btnLenguages.addEventListener('click', () => {
 /*HISTORY*/
 const btnHistory = document.querySelector('#ver_historial');
 btnHistory.addEventListener('click', () => {
-    fetch(`http://localhost:8080/api/history`, {
+    fetch(`https://retocambasoft.herokuapp.com/api/history`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'Authorization': `${localStorage.getItem('Authorization')}`}
     })

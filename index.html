@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CambaFront</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <header class="hero is-info">
+        <div class="hero-body">
+            <h1 class="title">Cambalache Front</h1>
+        </div>
+    </header>
+    <main class="container is-fluid">
+        <article class="columns">
+            <section class="column is-one-quarter">
+                <h3 class="subtitle is-uppercase has-text-danger has-text-centered">Console</h3>
+                <!--LOGIN-->
+                <div class="block" id="login">
+                    <p class="subtitle">Login</p>
+                    <form id="form_loginUser">
+                        <div class="is-horizontal">
+                            <div class="field ">
+                                <label class="label">Email</label>
+                                <input type="email" name="email" id="email" class="input" required />
+                            </div>
+                            <div class="field">
+                                <label class="label"> Contraseña</label>
+                                <input type="password" name="pass" id="pass" class="input" required />
+                            </div>
+                            <div class="control">
+                                <input type="submit" value="Ingresar" class="button is-link"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--REGISTER-->
+                <div class="block" id="register">
+                    <p class="subtitle">Register</p>
+                    <form id="form_registerUser">
+                        <div class="columns">
+                            <div class="column field">
+                                <label class="label">Nombre</label>
+                                <input type="text" name="firstName" id="firstName" class="input" required />
+                            </div>
+                            <div class="column field">
+                                <label class="label">Apellido</label>
+                                <input type="text" name="lastName" id="lastName" class="input" required />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <input type="email" name="emailRegister" id="emailRegister" class="input" required />
+                        </div>
+                        <div class="columns">
+                            <div class="column field">
+                                <label class="label">Cumpleaños</label>
+                                <input type="date" name="birthday" id="birthday" class="input" required />
+                            </div>
+                            <div class="column field">
+                                <label class="label">Lenguaje favorito</label>
+                                <div class="select">
+                                    <select id="lenguages" name="lenguages" class="input"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Contraseña</label>
+                            <input type="password" name="passRegister" id="passRegister" class="input" required/>
+                        </div>
+                        <div class="control">
+                            <input type="submit" value="Ingresar" class="button is-link" />
+                        </div>
+                    </form>
+                </div>
+                <!--LOGOUT-->
+                <div class="control is-hidden" id="logout">
+                    <form id="form_logout">
+                        <button class="button is-danger my-3">Salir</button>
+                    </form>
+                </div>
+                <!--REPOSITORY-->
+                <div class="block is-hidden" id="repository">
+                    <p class="subtitle">Repositorio</p>
+                    <div class="columns">
+                        <div class="column control my-2" id="ver_repos">
+                            <button class="button is-info">Mis repositorios</button>
+                        </div>
+                        <div class="column control my-2" id="ver_lenguages">
+                            <button class="button is-info">Ver Lenguajes</button>
+                        </div>
+                    </div>
+                    <form class="block" id="form_repo">
+                        <div class="field">
+                            <label class="label">Nombre</label>
+                            <input type="text" name="repoName" id="repoName" class="input" required />
+                        </div>
+                        <div class="field">
+                            <label class="label">Descripción</label>
+                            <input type="text" name="repoDesc" id="repoDesc" class="input" required />
+                        </div>
+                        <div class="columns is-align-items-center">
+                            <div class="column field">
+                                <label class="label">Lenguaje favorito</label>
+                                <div class="select">
+                                    <select id="repoLeng" name="repoLeng" class="input" required></select>
+                                </div>
+                            </div>
+                            <div class="column control">
+                                <input type="submit" value="Agregar" class="button is-link" />
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <form class="block" id="form_repoDelete">
+                        <div class="field">
+                            <label class="label">Borrar Repo</label>
+                            <input type="text" id="idRepo" name="idRepo" placeholder="Id de repo" class="input" required />
+                        </div>
+                        <div class="column control">
+                            <input type="submit" value="Aceptar" class="button is-link" />
+                        </div>
+                    </form>
+                </div>
+                <!--HISTORY-->
+                <div class="block is-hidden" id="history">
+                    <p class="subtitle">Historial</p>
+                    <div class="columns">
+                        <div class="column control my-2">
+                            <button class="button is-info" id="ver_historial">Ver historial</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="column response">
+                <h3 class="subtitle is-uppercase has-text-danger has-text-centered">Response</h3>
+                <pre  id="response"></pre>
+            </section>
+        </article>
+    </main>
+
+    <script src="./index.js"></script>
+</body>
+</html>

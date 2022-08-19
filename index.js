@@ -12,22 +12,16 @@ window.addEventListener('load', () => {
             lenguages.map(e => {
                 const select = document.querySelector('#lenguages');
                 const repoLen = document.querySelector('#repoLeng');
-                const history = document.querySelector('#historyType');
                 const option1 = document.createElement('option');
                 const option2 = document.createElement('option');
-                const option3 = document.createElement('option');
                 const text1 = document.createTextNode(e.lenguage);
                 const text2 = document.createTextNode(e.lenguage);
-                const text3 = document.createTextNode(e.lenguage);
                 option1.setAttribute('value', e.id);
                 option2.setAttribute('value', e.id);
-                option3.setAttribute('value', e.id);
                 option1.appendChild(text1);
                 option2.appendChild(text2);
-                option3.appendChild(text3);
                 repoLen.appendChild(option1);
                 select.appendChild(option2);
-                history.appendChild(option3);
             })
         })
 })

@@ -24,6 +24,18 @@ window.addEventListener('load', () => {
                 select.appendChild(option2);
             })
         })
+    
+    //Esto tendría que mandar una petición a currentUser y validar que el usuario sea válido.
+    if (localStorage.getItem('Authorization')) {
+        hideElements([
+            login,
+            register
+        ]);
+        showElements([
+            logout,
+            repository
+        ]);
+    }
 })
 
 

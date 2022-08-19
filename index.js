@@ -102,6 +102,14 @@ formRegisterUser.addEventListener('submit', (event) => {
         .then(data => {
             if (data.status === 'Error') return response.textContent = JSON.stringify(data, null, 2);
             const { token, id } = data.payload;
+            const name = document.querySelector('#firstName');
+            const lastName = document.querySelector('#lastName');
+            const email = document.querySelector('#emailRegister');
+            const birthday = document.querySelector('#birthday');
+            name.value = '';
+            lastName.value = '';
+            email.value = '';
+            birthday.value = '';
             response.textContent = JSON.stringify(data, null, 2);
             localStorage.setItem('Authorization', token);
             localStorage.setItem('uid', id);
@@ -209,7 +217,6 @@ btnHistory.addEventListener('click', () => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if (data.status === 'Error') return response.textContent = JSON.stringify(data, null, 2);
             response.textContent = JSON.stringify(data, null, 2);
         })
